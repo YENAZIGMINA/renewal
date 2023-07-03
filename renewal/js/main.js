@@ -7,13 +7,13 @@
 
 
 //Nav 2차메뉴
-$('.cabin li').click(function(e) {
+$('.cabin li').click(function (e) {
     e.preventDefault();
 });
-$('.cabin li').mouseover(function(){
+$('.cabin li').mouseover(function () {
     $(this).find('.depth').stop().slideDown();
 })
-$('.cabin li').mouseout(function(){
+$('.cabin li').mouseout(function () {
     $(this).find('.depth').stop().slideUp();
 })
 
@@ -28,14 +28,57 @@ $('.animate').scrolla({
 
 
 //메인이미지
-/* $('.slides').slick({
+let slidIndexRight = 1;
+let slidIndexLeft = 1;
 
-}); */
+slideShowRight(slidIndexRight);
+slideShowLeft(slidIndexLeft);
 
+function slideShowRight(n) {
+    let switchRight = document.getElementsByClassName('r_slide');
 
-slidIndex=1;
-slideShow(slidIndex)
+    if (n >= switchRight.length) {
+        slidIndexRight = 1;
+    }
+    if (n < 1) {
+        slidIndexRight = switchRight.length;
+    }
 
-function slideShow(n){
-    
+    for (let i = 0; i < switchRight.length; i++) {
+        switchRight[i].style.display = "none";
+    }
+
+    switchRight[slidIndexRight - 1].style.display = "block";
 }
+
+function slideShowLeft(n) {
+    let switchLeft = document.getElementsByClassName('l_slide');
+
+    if (n >= switchLeft.length) {
+        slidIndexLeft = 1;
+    }
+    if (n < 1) {
+        slidIndexLeft = switchLeft.length;
+    }
+
+    for (let i = 0; i < switchLeft.length; i++) {
+        switchLeft[i].style.display = "none";
+    }
+
+    switchLeft[slidIndexLeft - 1].style.display = "block";
+}
+
+
+
+let rightWrap = document.querySelector('.right_wrap');
+rightWrap.addEventListener("mouseover", function () {
+    slidIndexLeft++;
+    slideShowLeft(slidIndexLeft);
+});
+
+let leftWrap = document.querySelector('.left_wrap');
+leftWrap.addEventListener("mouseover", function () {
+    slidIndexRight++;
+    slideShowRight(slidIndexRight);
+});
+
