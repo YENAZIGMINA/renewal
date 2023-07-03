@@ -71,14 +71,22 @@ function slideShowLeft(n) {
 
 
 let rightWrap = document.querySelector('.right_wrap');
-rightWrap.addEventListener("mouseover", function () {
+rightWrap.addEventListener("click", function () {
     slidIndexLeft++;
     slideShowLeft(slidIndexLeft);
 });
 
 let leftWrap = document.querySelector('.left_wrap');
-leftWrap.addEventListener("mouseover", function () {
+leftWrap.addEventListener("click", function () {
     slidIndexRight++;
     slideShowRight(slidIndexRight);
 });
 
+
+
+
+//발레단소개 이미지 리플
+$(".int_img").ripples({
+    resolution: 500, // 렌더링 값이 클수록 잔물결 효과가 느리게 전파
+    perturbance: 0.02, // 잔물경 굴절 강도. 0은 굴절 없음
+});
