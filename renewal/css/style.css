@@ -53,18 +53,6 @@ a {text-decoration: none; color: #333;}
 }
 
 
-/* 마우스커서 */
-.cursor_wrap {}
-.cursor {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    width: 25px; height: 25px;
-    background-color: var(--extra-color);
-    border-radius: 50%;
-    z-index: 9999; display: flex;
-}
-
 
 /* LOADING */
 
@@ -536,13 +524,44 @@ a {text-decoration: none; color: #333;}
 
 
 /* 메인 이미지 */
-.main_wrapper {height: 150px;}
+.main_wrapper {height: 150px; position: relative;}
 .main_wrap {
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 30px;
 }
+
+/* 클릭버튼 */
+.b_circle {
+    position: absolute;
+    top: -40px; left: 700px;
+    width: 160px; height: 88px;
+    background-color: var(--point-sub-color);
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+}
+.b_circle span {
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    margin-top: 20px;
+    /* transition: 0.3s; */
+}
+.main_wrapper .b_circle:hover span {
+    color: var(--point-color);
+}
+.main_wrapper:hover .b_circle {
+    animation: b_circle 1s linear alternate infinite;
+}
+@keyframes b_circle {
+    0% {top: -48px; transform: scale(1,1);}
+    100% {top: -35px; transform: scale(1.2,1.2);}
+}
+
+
 .main_wrap .right_wrap {
     position: relative;
 }
@@ -594,31 +613,6 @@ a {text-decoration: none; color: #333;}
 @keyframes o_circle_r {
     0% {top: 470px; left: -72px;}
     100% {top: 450px; left: -82px;}
-}
-.right_wrap .r_ornament .b_circle {
-    position: absolute;
-    top: -48px; right: 76px;
-    width: 160px; height: 88px;
-    background-color: var(--point-sub-color);
-    border-radius: 50%;
-}
-.right_wrap:hover .r_ornament .b_circle {
-    animation: b_circle 1s linear alternate infinite;
-}
-.right_wrap .r_ornament .b_circle span:hover {
-    color: var(--point-color);
-}
-@keyframes b_circle {
-    0% {top: -48px; right: 76px; transform: scale(1,1);}
-    100% {top: -52px; right: 76px; transform: scale(1.3,1.3);}
-}
-.right_wrap .r_ornament .b_circle span {
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 18px;
-    line-height: 1.3;
-    display: block;
 }
 .right_wrap .r_ornament .o_circle_l {
     position: absolute;
@@ -734,18 +728,18 @@ a {text-decoration: none; color: #333;}
 
 /* introduce */
 .introduce {
-    margin-top: 300px;
     position: relative;
+    margin-top: 300px;
 }
 .introduce .title {}
 .introduce .title h2 {
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 700;
     display: inline-block;
-    margin: 50px 20px 50px 0;
+    margin: 50px 20px 40px 0;
 }
 .introduce .title span {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 500;
     display: inline-block;
     color: var(--sub-text-color);
@@ -754,48 +748,69 @@ a {text-decoration: none; color: #333;}
     margin-bottom: 80px;
 }
 .introduce .img_wrap .int_img {
-    width: 100%;
-    height: 100vh;
+    width: 80vw;
+    height: 80vh;
     background: url(https://i.postimg.cc/mgPDWXj8/introduce-04.jpg) no-repeat center;
     background-size: cover;
 }
-.introduce .text_wrap {
+.introduce .int_text {
     position: absolute;
-    bottom: -150px; left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    width: 92%;
-}
-.introduce .text_wrap .int_text {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 40px;
-}
-.introduce .text_wrap .int_text>div {
-    width: 33.3333%;
+    top: 192px; left: 45px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 570px;
+    padding: 70px 45px 50px;
+    box-sizing: border-box;
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
 }
 .introduce .text_wrap .int_text p {
-    font-size: 20px;
-    line-height: 2;
-    font-family: 'Noto Sans KR', sans-serif;;
+    font-size: 18px;
+    line-height: 2.2;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    margin-bottom: 35px;
 }
-.text_wrap .int_text .last_p p {
+.text_wrap .int_text .last_col p {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.text_wrap .plus {
+
+.introduce .plus {
     position: absolute;
-    bottom: 30px; right: 23px;
+    bottom: -187px; left: 225px;
 }
-.text_wrap .plus span {
-    color: var(--main-color);
-    font-size: 20px;
+.introduce .plus a {
+    font-size: 23px;
+    font-weight: 600;
+    color: #fff;
+    width: 100%; height: 50px;
+    background-color: var(--main-color);
+    padding: 10px 32px;
+    border-radius: 50px;
+    transition: 0.3s;
 }
-.text_wrap .plus i {
-    color: var(--main-color);
-    font-size: 20px;
+.introduce .plus a:hover {
+    background-color: var(--extra-color);
+}
+.introduce .plus a span {
+    color: var(--point-color);
+}
+
+
+/* 마우스커서 */
+.cursor_wrap {}
+.cursor {
+    position: absolute;
+    top: 50%; left: 25%;
+    /* transform: translate(-50%,-50%); */
+    width: 90px; height: 90px;
+    background-color: #ff4800;
+    border-radius: 50%;
+    z-index: 100;
+    mix-blend-mode: lighten;
+    backdrop-filter: invert(100%);
+    scroll-behavior: smooth;
+    opacity: 0;
 }
