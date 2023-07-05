@@ -83,6 +83,7 @@ leftWrap.addEventListener("click", function () {
 
 
 
+
 //발레단소개 이미지 리플
 $(".int_img").ripples({
     resolution: 500, // 렌더링 값이 클수록 잔물결 효과가 느리게 전파
@@ -91,21 +92,31 @@ $(".int_img").ripples({
 
 
 //마우스 커서
+const introduce = document.querySelector('.introduce');
 const intText = document.querySelector('.int_text');
+const cursor = document.querySelector('.cursor');
 
-intText.addEventListener('mousemove', function(e) {
-    const cursor = document.querySelector('.cursor');
+introduce.addEventListener('mousemove', function(e) {
     const parentRect = cursor.parentNode.getBoundingClientRect();
 
-    cursor.style.display="block";
-    cursor.style.opacity="1";
+    cursor.style.opacity = "1";
     cursor.style.top = `${e.clientY - parentRect.top}px`;
     cursor.style.left = `${e.clientX - parentRect.left}px`;
 });
 
-intText.addEventListener('mouseleave',(e)=>{
-    const cursor = document.querySelector('.cursor');
+introduce.addEventListener('mouseleave', (e) => {
+    cursor.style.opacity = "0";
+});
 
-    cursor.style.display="none";
-    cursor.style.opacity="0";
-})
+
+
+intText.addEventListener('mousemove', function(e) {
+    cursor.classList.add("active")
+});
+
+intText.addEventListener('mouseleave', function(e) {
+    cursor.classList.remove("active")
+});
+
+
+
