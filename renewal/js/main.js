@@ -158,7 +158,7 @@ window.addEventListener('scroll', scrollHandler);
 
 
 
-/* academy 이미지 */
+/* academy 이미지 전환 */
 
 initComparisons();
 

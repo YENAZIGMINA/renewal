@@ -857,8 +857,6 @@ a {text-decoration: none; color: #333;}
 }
 
 
-
-
 /* academy 소개 */
 .academy {margin-top: 50px;}
 .academy .title {
@@ -886,7 +884,7 @@ a {text-decoration: none; color: #333;}
 .application {
     position: relative;
     width: 100%; height: 700px;
-    background-color: var(--bg-color);
+    background-color: #ffa528;
     border-radius: 30px;
 }
 .application .point1 {
@@ -927,28 +925,28 @@ a {text-decoration: none; color: #333;}
 }
 
 .application form {
-    padding: 40px 30px;
+    padding: 15px 0px 25px;
 }
 .application form div {
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     padding: 0 70px;
-    height: 45px;
 }
 .application form label {
     display: inline-block;
     font-family: 'Cabin', sans-serif;
     text-align: center;
     font-size: 19px;
-    font-weight: 500;
+    font-weight: 600;
     width: 150px; height: 45px;
-    background-color: #ffce88;
+    background-color: #ffd08eca;
     border-radius: 2px;
     transform: translateY(2px);
     line-height: 45px;
+    margin-right: 4px;
 }
 .application form input.w_box {
     outline: none; border: none;
-    height: 45px; width: 300px;
+    height: 45px; width: 386px;
     background-color: #fff;
     border-radius: 2px;
     padding: 10px;
@@ -966,28 +964,84 @@ a {text-decoration: none; color: #333;}
     display: block;
     position: absolute;
     top: 2px;
-    right: 101px;
-    width: 300px; height: 45px;
+    right: 71px;
+    width: 386px; height: 45px;
     background-color: #ffffff;
     border-radius: 2px;
     z-index: -1;
 }
 .application form .class_choice .radio {
-    margin-left: 32px;
+    margin-left: 50px;
 }
-.application form .class_choice .input_box {
-
-    
+.application form .e_mail #email_front {
+    outline: none; border: none;
+    height: 45px; width: 150px;
+    border-radius: 2px;
+    margin-right: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+} 
+.application form .e_mail #email_back {
+    outline: none; border: none;
+    height: 45px; width: 203px;
+    border-radius: 2px;
+    margin-left: 4px;
+    padding: 10px;
 }
-/* .application form .class_choice input {
-
-} */
-
-.application .name {}
+.application form .phone input {
+    letter-spacing: 3px;
+}
+.application form .memo label {
+    transform: translateY(-67px);
+}
+.application form .memo textarea {
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none; border: none;
+    border-radius: 2px;
+    padding: 11px;
+    box-sizing: border-box;
+}
+.application .submit {
+    text-align: center;
+    position: relative;
+}
+.application .submit::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 15px; left: 70px;
+    height: 2.5px; width: 161px;
+    background-color: var(--main-color);
+}
+.application .submit::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 15px; right: 74px;
+    height: 2.5px; width: 161px;
+    background-color: var(--main-color);
+}
+.application .submit a {
+    font-size: 23px; font-weight: 600;
+    color: #fff;
+    outline: none; border: none;
+    background-color: var(--main-color);
+    padding: 10px 37px;
+    border-radius: 50px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+.application .submit:hover a {
+    background-color: var(--ultra-ex-color);
+}
+.application .submit span {
+    text-transform: none;
+    color: var(--point-color);
+}
 
 
 /* 이미지 전환 */
-
 .img-comp-container {
     float: right; width: 49%;
     position: relative;
@@ -1012,9 +1066,27 @@ a {text-decoration: none; color: #333;}
     z-index: 9;
     cursor: ew-resize;
     /*set the appearance of the slider:*/
-    width: 40px;
-    height: 40px;
-    background-color: #2196F3;
+    width: 100px; height: 100px;
+    background-color: var(--main-color);
     opacity: 0.7;
     border-radius: 50%;
+}
+.img-comp-slider:hover {
+    background-color: var(--ultra-ex-color);
+}
+
+.img-comp-slider::before {
+    content: "MOVE";
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 'LINESeedKR-Bd';
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.img-comp-slider:hover::before {
+    color: var(--point-color);
 }
